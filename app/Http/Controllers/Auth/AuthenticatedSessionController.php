@@ -28,6 +28,18 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        if (auth()->user()->deleted_at !== null) {
+            Auth::logout();
+            return redirect()->route('login')->with('error', 'Akun Anda telah dinonaktifkan');
+        }
+
+        if (auth()->user()->role === 1) {
+            return redirect()->intended(route('admin.dashboard', absolute: false));
+
+        } else {
+            return redirect()->intended(route('user.dashboard', absolute: false));
+    }
+
         return redirect()->intended(route('dashboard', absolute: false));
     }
 

@@ -2,10 +2,16 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
+    <div class="mb-6 text-center">
+        <img src="{{ asset('images/family-wallet-logo.png') }}" alt="Family Wallet Logo" class="mx-auto h-36 w-auto mb-4">
+        <h2 class="text-2xl font-bold text-gray-900">Family Wallet</h2>
+        <p class="text-sm text-gray-600 mt-1">Sistem Tabungan Keluarga</p>
+    </div>
+
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
-        <!-- Email Address -->
+        <!-- Username -->
         <div>
             <x-input-label for="username" :value="__('Username')" />
 
@@ -44,13 +50,7 @@
             </label>
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
+        <div class="flex items-center justify-end mt-6">
             <x-primary-button class="ms-3">
                 {{ __('Log in') }}
             </x-primary-button>

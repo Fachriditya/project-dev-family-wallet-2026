@@ -13,7 +13,7 @@ class DashboardAdminController extends Controller
         $total = DB::table('v_total_saldo')->first();
         $leaderboard = DB::table('v_leaderboard')->get();
 
-        return view('dashboard', [
+        return view('admin.dashboard', [
             'total' => $total,
             'leaderboard' => $leaderboard,
         ]);
