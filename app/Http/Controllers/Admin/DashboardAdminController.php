@@ -19,7 +19,6 @@ class DashboardAdminController extends Controller
                         ->count();
                         
         $leaderboard = DB::table('v_leaderboard')
-                        ->limit(10)
                         ->get();
 
         return view('admin.dashboard', compact('totalSaldo', 'totalUser', 'leaderboard'));

@@ -14,7 +14,7 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     {{-- Dashboard Link berdasarkan role --}}
                     @if(Auth::user()->role === 1)
-                        {{-- Admin Navigation --}}
+                    {{-- Admin Navigation --}}
                         <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
                             {{ __('Dashboard') }}
                         </x-nav-link>
@@ -24,8 +24,8 @@
                         <x-nav-link :href="route('admin.transactions.index')" :active="request()->routeIs('admin.transactions.*')">
                             {{ __('Transactions') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('admin.leaderboard')" :active="request()->routeIs('admin.leaderboard')">
-                            {{ __('Leaderboard') }}
+                        <x-nav-link :href="route('admin.profile.edit')" :active="request()->routeIs('admin.profile.*')">
+                            {{ __('Profile') }}
                         </x-nav-link>
                     @else
                         {{-- User Navigation --}}
@@ -34,9 +34,6 @@
                         </x-nav-link>
                         <x-nav-link :href="route('user.transactions.index')" :active="request()->routeIs('user.transactions.*')">
                             {{ __('Transactions') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('user.leaderboard')" :active="request()->routeIs('user.leaderboard')">
-                            {{ __('Leaderboard') }}
                         </x-nav-link>
                     @endif
                 </div>
@@ -102,9 +99,6 @@
                 <x-responsive-nav-link :href="route('admin.transactions.index')" :active="request()->routeIs('admin.transactions.*')">
                     {{ __('Transactions') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('admin.leaderboard')" :active="request()->routeIs('admin.leaderboard')">
-                    {{ __('Leaderboard') }}
-                </x-responsive-nav-link>
             @else
                 {{-- User Mobile Navigation --}}
                 <x-responsive-nav-link :href="route('user.dashboard')" :active="request()->routeIs('user.dashboard')">
@@ -112,9 +106,6 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('user.transactions.index')" :active="request()->routeIs('user.transactions.*')">
                     {{ __('Transactions') }}
-                </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('user.leaderboard')" :active="request()->routeIs('user.leaderboard')">
-                    {{ __('Leaderboard') }}
                 </x-responsive-nav-link>
             @endif
         </div>
