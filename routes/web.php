@@ -43,7 +43,6 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('/transactions', [TransactionsManagementController::class, 'index'])->name('transactions.index');
     Route::get('/transactions/create', [TransactionsManagementController::class, 'create'])->name('transactions.create');
     Route::post('/transactions', [TransactionsManagementController::class, 'store'])->name('transactions.store');
-    Route::delete('/transactions/{id}', [TransactionsManagementController::class, 'destroy'])->name('transactions.destroy');
     
     // Profile Admin
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

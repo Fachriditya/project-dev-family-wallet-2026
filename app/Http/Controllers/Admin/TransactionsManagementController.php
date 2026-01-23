@@ -76,22 +76,4 @@ class TransactionsManagementController extends Controller
                             ->withInput();
         }
     }
-
-    /**
-     * Soft delete transaction
-     */
-    public function destroy($id)
-    {
-        try {
-            DB::table('transactions')
-                ->where('id', $id)
-                ->update(['deleted_at' => now()]);
-
-            return redirect()->route('admin.transactions.index')
-                            ->with('success', 'Transaksi berhasil dihapus!');
-        } catch (\Exception $e) {
-            return redirect()->route('admin.transactions.index')
-                            ->with('error', 'Gagal menghapus transaksi: ' . $e->getMessage());
-        }
-    }
 }

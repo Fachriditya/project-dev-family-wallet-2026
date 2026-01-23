@@ -24,9 +24,6 @@
                         <x-nav-link :href="route('admin.transactions.index')" :active="request()->routeIs('admin.transactions.*')">
                             {{ __('Transactions') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('admin.profile.edit')" :active="request()->routeIs('admin.profile.*')">
-                            {{ __('Profile') }}
-                        </x-nav-link>
                     @else
                         {{-- User Navigation --}}
                         <x-nav-link :href="route('user.dashboard')" :active="request()->routeIs('user.dashboard')">

@@ -16,7 +16,6 @@ class UsersManagementController extends Controller
     public function index()
     {
         $users = User::where('role', 2)
-                    ->whereNull('deleted_at')
                     ->orderBy('created_at', 'desc')
                     ->paginate(10);
 
@@ -63,7 +62,7 @@ class UsersManagementController extends Controller
             'username' => $validated['username'],
             'password' => Hash::make($validated['password']),
             'photo' => $photoPath,
-            'role' => 2, // User biasa
+            'role' => 2, 
         ]);
 
         return redirect()->route('admin.users.index')
@@ -76,7 +75,6 @@ class UsersManagementController extends Controller
     public function edit($id)
     {
         $user = User::where('role', 2)
-                    ->whereNull('deleted_at')
                     ->findOrFail($id);
 
         return view('admin.users.edit', compact('user'));
@@ -88,7 +86,6 @@ class UsersManagementController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::where('role', 2)
-                    ->whereNull('deleted_at')
                     ->findOrFail($id);
 
         $validated = $request->validate([
@@ -123,10 +120,9 @@ class UsersManagementController extends Controller
     public function destroy($id)
     {
         $user = User::where('role', 2)
-                    ->whereNull('deleted_at')
                     ->findOrFail($id);
 
-        $user->update(['deleted_at' => now()]);
+        $user->delete();
 
         return redirect()->route('admin.users.index')
                         ->with('success', 'User berhasil dihapus!');
