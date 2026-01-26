@@ -1,3 +1,52 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer components {
+    /* Custom gradient backgrounds */
+    .bg-gradient-primary {
+        @apply bg-gradient-to-br from-primary-500 to-primary-700;
+    }
+    
+    .bg-gradient-secondary {
+        @apply bg-gradient-to-br from-secondary-500 to-secondary-700;
+    }
+    
+    /* Custom button styles */
+    .btn-primary {
+        @apply bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5;
+    }
+    
+    /* Custom input focus */
+    .input-focus {
+        @apply focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200;
+    }
+    
+    /* Card hover effect */
+    .card-hover {
+        @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+    }
+    
+    /* Glass morphism effect */
+    .glass {
+        @apply bg-white/80 backdrop-blur-lg border border-white/20;
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-primary-400 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-600;
+}
