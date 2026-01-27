@@ -65,7 +65,7 @@
                             <div class="text-right">
                                 <p class="text-xs text-gray-500 uppercase">Saldo Saya</p>
                                 <p class="text-3xl font-bold bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">
-                                    Rp {{ number_format($myData->saldo ?? 0, 0, ',', '.') }}
+                                    Rp {{ number_format($user->saldo ?? 0, 0, ',', '.') }}
                                 </p>
                             </div>
                         </div>
@@ -84,10 +84,10 @@
                                             <p class="text-xs font-bold text-green-600 uppercase">Total Masuk</p>
                                         </div>
                                         <p class="text-3xl font-bold text-green-700 mb-2">
-                                            Rp {{ number_format($myData->total_masuk ?? 0, 0, ',', '.') }}
+                                            Rp {{ number_format($user->total_masuk ?? 0, 0, ',', '.') }}
                                         </p>
                                         <p class="text-sm text-green-600 font-medium">
-                                            {{ $myData->jumlah_nabung ?? 0 }} transaksi
+                                            {{ $user->jumlah_nabung ?? 0 }} transaksi
                                         </p>
                                     </div>
                                 </div>
@@ -106,10 +106,10 @@
                                             <p class="text-xs font-bold text-red-600 uppercase">Total Keluar</p>
                                         </div>
                                         <p class="text-3xl font-bold text-red-700 mb-2">
-                                            Rp {{ number_format($myData->total_keluar ?? 0, 0, ',', '.') }}
+                                            Rp {{ number_format($user->total_keluar ?? 0, 0, ',', '.') }}
                                         </p>
                                         <p class="text-sm text-red-600 font-medium">
-                                            {{ $myData->jumlah_tarik ?? 0 }} transaksi
+                                            {{ $user->jumlah_tarik ?? 0 }} transaksi
                                         </p>
                                     </div>
                                 </div>

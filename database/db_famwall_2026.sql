@@ -234,6 +234,5 @@ DELIMITER ;
 -- ============================================
 
 INSERT INTO users (nama, username, password, role) VALUES
-('Admin', 'Admin', '$2y$10$Dtf/Q8cjXmJvewWGTye8bOehY51JJTKBHjexDHmlINFukmdT8x3Hm', 1),
-('User', 'User', '$2y$10$Dtf/Q8cjXmJvewWGTye8bOehY51JJTKBHjexDHmlINFukmdT8x3Hm', 2);
+('Admin', 'Admin', '$2y$10$Dtf/Q8cjXmJvewWGTye8bOehY51JJTKBHjexDHmlINFukmdT8x3Hm', 1);
 

@@ -11,18 +11,33 @@ class DashboardUserController extends Controller
 {
     public function index()
     {
-        // Get total saldo keluarga (sama kayak admin)
         $totalSaldo = DB::table('v_total_saldo')->first();
 
-        // Get data user ini dari view kontribusi
-        $userStats = DB::table('v_kontribusi_user')
+        $user = DB::table('v_kontribusi_user')
                         ->where('id', Auth::id())
                         ->first();
 
-        // Get leaderboard top 10
         $leaderboard = DB::table('v_leaderboard')
                         ->get();
 
-        return view('user.dashboard', compact('totalSaldo', 'userStats', 'leaderboard'));
+        if (!$user) {
+            $authUser = Auth::user();
+            $user = (object) [
+                'id' => $userId,
+                'nama' => $authUser->nama,
+                'username' => $authUser->username,
+                'photo' => $authUser->photo,
+                'total_masuk' => 0,
+                'total_keluar' => 0,
+                'saldo' => 0,
+                'jumlah_nabung' => 0,
+                'jumlah_tarik' => 0,
+                'total_transaksi' => 0,
+                'ranking' => null,
+                'persentase_kontribusi' => 0,
+            ];
+        }
+
+        return view('user.dashboard', compact('totalSaldo', 'user', 'leaderboard'));
     }
 }
